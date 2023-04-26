@@ -1,0 +1,49 @@
+.terms-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 450px;
+}
+
+.buttons-container {
+    width: 80%;
+    height: 450px;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}
+
+.buttons-container-button {
+    width: 20%;
+    margin-left: 60px;
+    margin-top: 15px;
+    height: 50px;
+}
+
+.result {
+    display: flex;
+    flex-direction: row;
+    border: solid;
+} 
+
+.buttons {
+    width: 40%;
+    border-right: solid;
+    margin: 5px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+}
+
+.content-img {
+    margin: 10px;
+}
+
+.content-text {
+    margin: 15px;
+}

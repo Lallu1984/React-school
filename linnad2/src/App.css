@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.card-title {
+  font-size: xx-large;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  width: 460px;
+  height: 900px;
+}
+
+.card-img-top {
+  display: flex;
+  height: 500px;
+  width: auto;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 70px;
+  width: auto;
+}
+
+.btn1 {
+  height: 50px;
+}
+
+#example-collapse-text {
+  border: solid;
+  font-size: smaller;
+}
+
+.p-4 {
+  padding: 4px;
+}
