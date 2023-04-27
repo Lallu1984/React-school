@@ -1,9 +1,10 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Asukohad from './Asukohad';
 import AsukohtDetailid from './AsukohtDetailid';
 import {loeAndmed} from './kontrollerid/Andmed.js'
+import LisaAsukoht from './LisaAsukoht';
 
 function App() {
   const [aktiivne, setAktiivne] = useState(0)
@@ -31,6 +32,23 @@ function App() {
     }
   ])
 
+  const lisaKoht = (nimi, lat, long) => {
+    const uusKoht = {
+        nimi: nimi,
+        lat: lat,
+        long: long,
+        andmed: null
+    } 
+    const uusMassiv =[...asukohad, uusKoht]
+    setAsukohad(uusMassiv)
+  }
+
+  useEffect(() => {
+    console.log('renderdus')
+    muudaAktiivset(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const asendaIlmaAndmed = (asukohaIndex, ilmaAndmed) => {
     const uuedAndmed = asukohad.map((asukoht, index) => {
       if (index !== asukohaIndex) {
@@ -41,7 +59,9 @@ function App() {
         temperatuur: ilmaAndmed.temperature,
         aeg: ilmaAndmed.time,
         ilmakood: ilmaAndmed.weathercode,
-        tuuleKiirus: ilmaAndmed.windspeed
+        tuuleKiirus: ilmaAndmed.windspeed,
+        kasPaev: ilmaAndmed.is_day,
+        tuulesuund: ilmaAndmed.winddirection,
       }
 
       return {...asukoht, andmed: ilm}
@@ -71,9 +91,11 @@ function App() {
           asukohad={asukohad}
           muudaAktiivset={muudaAktiivset}
           />
+          <LisaAsukoht lisaKoht={lisaKoht} />
         </div>
         <div className='col-sm-7'>
-          <AsukohtDetailid asukoht={asukohad[aktiivne]} />
+          <AsukohtDetailid asukoht={asukohad[aktiivne]}
+          />
         </div>
 
       </div>
