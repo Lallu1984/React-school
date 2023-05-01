@@ -1,14 +1,17 @@
-import { loeAndmed } from './kontrollerid/Andmed';
+
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MovieList from './MovieList';
-import MovieDetails from './MovieDetails';
+import SearchBox from './SearchBox';
+
 
 
 
 
 function App() {
 
+ 
+  const [searchValue, setSearchValue] = useState('');
   const [filmid, setFilmid] = useState([
     { 
      id: 798544,
@@ -37,45 +40,43 @@ function App() {
 
    ])
 
-   const asendaMovieInfo = (asukohaIndex, movieInfo) => {
-    const uuedAndmed = filmid.map((film, index) => {
-      if (index !== asukohaIndex) {
-        return film
-      }
+   const getMovieRequest = async (searchValue) => {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=24c64ea903d3b9426c0b72f5af3d2813&language=en-US&query=${searchValue}}&page=1&include_adult=false`
+  
+    const response = await fetch(url);
+    const responseJson = await response.json();
 
-   const info = {
-    title: movieInfo.original_title,
-    kirjeldus: movieInfo.overview,
-    aasta: movieInfo.release_date,
-    poster: movieInfo.poster_path,
-   }
+    if (responseJson.results) {
+    setFilmid(responseJson.results)
+      console.log(filmid)
+  };
+};
 
-   return {...film, andmed: info}
-  })
-
-    setFilmid(uuedAndmed)
-}
-
+  useEffect(() => {
+    getMovieRequest(searchValue)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchValue] )
 
   return (
     <>
     <div className="container-fluid p-5 bg-dark text-white text-center">
       <h1>Movie app</h1>
     </div>
-    <div className='container mt-5'>
-      <div className='row'>
-        <div className='col-sm-5'>
+        <div className='serchbox'>
+          <SearchBox 
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          />
+
+        </div>
+        
+          <div className='results'>
           <MovieList 
           filmid={filmid}
           />
-        </div>
-        <div className='col-sm-7'>
-          <MovieDetails film={filmid}/>
-        </div>
+          </div>
 
-      </div>
-
-    </div>
+        
     </>
   );
 }
