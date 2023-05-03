@@ -1,7 +1,26 @@
+
+.container-header {
+  height: 100px;
+  width: 100%;
+  font-size: 250px;
+  text-align: center;
+  background-image: url(./depositphotos_10837114-stock-photo-film-with-images.jpg);
+  background-position: center;
+  background-color: dimgray;
+  
+}
+
+.container-header h1 {
+  font-size: 65px;
+  color: rgb(7, 222, 222);
+  -webkit-text-stroke: 2px black;
+  
+}
+
 .onemovie {
-  background-color: greenyellow;
-  width: 450px;
-  height: 550px;
+  background-color: rgb(191, 191, 191);
+  width: 350px;
+  height: 420px;
   border: solid;
   border-radius: 10px;
   margin: 15px;
@@ -10,23 +29,135 @@
 
 .results {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-left: 40px;
+  text-align: center;
+  width: 18%;
+  border-right: solid;
+  border-top: solid;
+  border-radius: 20px;
+  background-color: rgb(99, 99, 99);
 }
 
-.serchbox {
+.filter-container {
   width: 20%;
   margin: 15px;
 }
 
-.onemovie p {
-  font-size: small;
-  padding: 10px;
+.onemovie img {
+  width: 320px;
+  height: 320px;
+  border-radius: 10px;
 }
 
-.onemovie img {
-  width: 200px;
-  height: 150px;
+.main-results {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  
+}
+
+.description {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  border-top: solid;
+  border-right: solid;
+  border-radius: 20px;
+  padding-bottom: 65px;
+  background-color: rgb(191, 191, 191);
+  margin-left: 5px;
+}
+
+.description img {
+  border: solid;
   border-radius: 10px;
+}
+
+.overview {
+  background-color: azure;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: solid;
+  border-radius: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.release-date {
+  background-color: azure;
+  margin-left: 25%;
+  margin-right: 25%;
+  border: solid;
+  border-radius: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  background-color: azure;
+  margin-top: 35px;
+  margin-left: 35%;
+  margin-right: 35%;
+  border: solid;
+  border-radius: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.description-main {
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  border-top: solid;
+  border-right: solid;
+  border-radius: 20px;
+  padding-bottom: 65px;
+  background-color: rgb(99, 99, 99);
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  .onemovie {
+    width: 250px;
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .onemovie img {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .onemovie {
+    width: 150px;
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .onemovie img {
+    width: 70px;
+    height: 70px;
+  }
 }
